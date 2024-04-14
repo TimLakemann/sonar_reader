@@ -2,11 +2,14 @@
     <arg name="UAV_NAME" default="$(optenv UAV_NAME uav1)" />
     <arg name="portname" default="/dev/ttyACM0" /> 
     <arg name="baud_rate" default="9600" /> 
-    
-    <node pkg="sonar_reader" type="sonar_reader_node" name="sonar_reader_node"  output="screen">
+
+  <node pkg="nodelet" type="nodelet" name="standalone_nodelet" args="manager" output="screen" />
+ 
+  <node pkg="nodelet" type="nodelet" name="SonarReader" args="load sonar/SonarReader standalone_nodelet" output="screen">
         <param name="uav_name" type="string" value="$(arg UAV_NAME)"/>
         <param name="portname" type="string" value="$(arg portname)"/>
         <param name="baud_rate" type="int" value="$(arg baud_rate)"/>
         <remap from="~sonar_distance" to="/$(arg UAV_NAME)/sonar/range" />
     </node>
-</launch> 
+
+</launch>

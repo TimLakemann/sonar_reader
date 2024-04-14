@@ -1,0 +1,9 @@
+<library path="lib/libSonar_sonar_reader">
+  <class name="sonar/SonarReader"
+         type="sonar::SonarReader"
+         base_class_type="nodelet::Nodelet">
+    <description>
+        This nodelet receives a message and publishes it.
+    </description>
+  </class>
+</library>
