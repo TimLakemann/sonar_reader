@@ -32,7 +32,7 @@ namespace sonar{
         void readSerialData() {
             while (ros::ok()) {
                 boost::asio::streambuf buffer;
-                boost::asio::read_until(serial_port_, buffer, "\n");
+                boost::asio::read_until(serial_port_, buffer, "\r");
                 std::istream is(&buffer);
                 std::string line;
                 std::getline(is, line);
@@ -48,7 +48,7 @@ namespace sonar{
 
                 std_msgs::Int32 msg;
                 msg.data = distance;
-
+                ROS_INFO("HER");
                 pub_.publish(msg);
             }
         }
