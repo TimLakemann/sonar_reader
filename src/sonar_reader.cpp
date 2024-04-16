@@ -48,7 +48,6 @@ namespace sonar{
 
                 std_msgs::Int32 msg;
                 msg.data = distance;
-                ROS_INFO("HER");
                 pub_.publish(msg);
             }
         }
