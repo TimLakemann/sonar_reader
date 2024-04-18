@@ -45,7 +45,7 @@ namespace sonar{
                 }else{
                     distance = -1;
                 }
-
+                ROS_INFO("Distance: %d cm", distance);
                 std_msgs::Int32 msg;
                 msg.data = distance;
                 pub_.publish(msg);
